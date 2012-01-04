@@ -5,3 +5,5 @@
 /include/yomogi/function.hpp~
 /include/yomogi/ostream_ext.hpp~
 /include/yomogi/print_debug_macro.hpp~
+/example/singleton_example_debug
+/example/singleton_example_release

@@ -73,7 +73,7 @@ int main()
     // typedef typename sample::SampleClass<int>::type sci;
     // typedef yomogi::design_pattern::singleton< sample::detail::SampleClassDetail<int> > sci;
     typedef sample::SampleClass<int> sci;
-  
+
     sci::create();
     std::cout << sci::instance()->get_val() << std::endl; // OK
     sci::destroy();

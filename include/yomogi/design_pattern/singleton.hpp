@@ -30,6 +30,7 @@ public:
   instance()
   {
     assert( instance_ptr_ != nullptr );
+    
     return instance_ptr_;
   }
 
@@ -39,6 +40,8 @@ public:
   void
   create( ArgTypes ... args )
   {
+    assert( instance_ptr_ == nullptr );
+    
     if( ! instance_ptr_ ){
       instance_ptr_ = new instance_type( args... );
     }
@@ -48,6 +51,8 @@ public:
   void
   destroy()
   {
+    assert( instance_ptr_ != nullptr );
+    
     delete instance_ptr_;
     instance_ptr_ = nullptr;
   }
@@ -61,13 +66,3 @@ singleton<InstanceType>::instance_ptr_ = nullptr;
 } // namespace yomogi
 
 #endif
-
-
-
-
-
-
-
-
-
-
