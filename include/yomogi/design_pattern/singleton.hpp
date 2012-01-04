@@ -7,6 +7,8 @@
 namespace yomogi{
 namespace design_pattern{
 
+// あるクラスのシングルトンを生成するクラス。
+// シングルトンにするクラスは、テンプレート引数 InstanceType で指定する。
 template <typename InstanceType>
 class singleton
 {
