@@ -28,6 +28,10 @@ public:
     :val_( val )
   { }
 
+  SampleClassDetail( value_type val1 , value_type val2)
+    :val_( val1 + val2 )
+  { }
+
   // g
   inline
   const
@@ -77,17 +81,21 @@ int main()
     sci::create();
     std::cout << sci::instance()->get_val() << std::endl; // OK
     sci::destroy();
-  
+
     sci::create( 4 );
     std::cout << sci::instance()->get_val() << std::endl; // OK
+    sci::destroy();
+  
+    sci::create( 2, 3 );
+    std::cout << sci::instance()->get_val() << std::endl; // OK variadic template すごい
 
-    sci::create( 5 );
+    sci::create( 6 );
     std::cout << sci::instance()->get_val() << std::endl; // destroy されていないので変更が反映されない。
   }
 
   typedef sample::SampleClass<int> sci;
 
-  sci::create( 6 );
+  sci::create( 7 );
   std::cout << sci::instance()->get_val() << std::endl; // スコープから抜けても destroy されてないと見れない
 
   typedef sample::SampleClass<char> scc;
