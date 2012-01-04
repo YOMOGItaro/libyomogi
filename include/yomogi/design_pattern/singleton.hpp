@@ -22,15 +22,6 @@ private:
 private:
   singleton()
   { /* NTD */ }
-
-  // d
-public:
-  virtual
-  ~singleton()
-  {
-    delete instance_ptr_;
-    instance_ptr_ = nullptr;
-  }
   
   // g
 public:
