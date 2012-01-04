@@ -7,3 +7,7 @@
 /include/yomogi/print_debug_macro.hpp~
 /example/singleton_example_debug
 /example/singleton_example_release
+/example/1
+/example/observer_example
+/example/observer_example.cpp~
+/include/yomogi/design_pattern/observer.hpp~
