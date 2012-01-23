@@ -1,3 +1,4 @@
+#include <typeinfo>
 #include <iostream>
 #include <yomogi/design_pattern/singleton.hpp>
 
@@ -41,6 +42,18 @@ public:
   {
     return val_;
   }
+
+  void *
+  operator new(size_t size)
+  {
+    char * pMem = ( char * )malloc( size );
+
+    // std::cout << std::type_info(size_t) << std::endl;
+    std::cout << typeid( SampleClassDetail ).name() << std::endl;
+    
+    return pMem;
+  }
+
 };
 
 } // namespace 
@@ -71,6 +84,7 @@ class SampleClass
 } // namespace sample
 
 
+
 int main()
 {
   {
@@ -81,6 +95,8 @@ int main()
     sci::create();
     std::cout << sci::instance()->get_val() << std::endl; // OK
     sci::destroy();
+
+    const auto & hoge = sci::instance();
 
     sci::create( 4 );
     std::cout << sci::instance()->get_val() << std::endl; // OK
